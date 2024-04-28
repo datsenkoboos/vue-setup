@@ -12,7 +12,7 @@
     "build:sb-tailwind": "pnpm build:sb-scss && pnpm exec tailwindcss -i .storybook/main.css -o .storybook/compiled.css --minify",
     "build:sb": "pnpm build:sb-tailwind && storybook build",
     "check:type": "vue-tsc --noEmit -p tsconfig.vitest.json",
-    "check:lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .eslintignore --max-warnings=0",
+    "check:lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore --max-warnings=0",
     "check:format": "prettier --check .",
     "check": "pnpm check:type && pnpm check:lint && pnpm check:format",
     "dev:local": "vite",
@@ -23,10 +23,7 @@
     "dev:sb": "conc \"storybook dev -p 6006 --no-open\" \"pnpm dev:sb-styles\"",
     "format": "prettier --write .",
     "format:silent": "pnpm format --log-level silent",
-    "test": "vitest",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test": "vitest"
   },
   "dependencies": {
     "@sentry/vue": "^7.112.2",
