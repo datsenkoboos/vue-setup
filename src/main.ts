@@ -3,6 +3,7 @@ import './assets/styles/main.scss';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { VueQueryPlugin } from '@tanstack/vue-query';
+import vueQueryConfig from './vueQueryConfig';
 // import * as Sentry from '@sentry/vue';
 
 import App from './App.vue';
@@ -18,7 +19,7 @@ const app = createApp(App);
 
 app.use(createPinia());
 app.use(router);
-app.use(VueQueryPlugin);
+app.use(VueQueryPlugin, vueQueryConfig);
 
 // if (
 //   import.meta.env.PROD
