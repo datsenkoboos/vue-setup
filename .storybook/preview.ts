@@ -6,6 +6,8 @@ import '@/fonts';
 
 import { createPinia } from 'pinia';
 import { VueQueryPlugin } from '@tanstack/vue-query';
+import { vueRouter } from 'storybook-vue3-router';
+import { routes } from '../src/router';
 
 const pinia = createPinia();
 
@@ -23,6 +25,7 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [vueRouter(routes)],
 };
 
 export default preview;

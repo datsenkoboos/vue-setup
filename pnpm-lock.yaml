@@ -23,6 +23,9 @@ importers:
       axios:
         specifier: ^1.6.8
         version: 1.6.8
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
       pinia:
         specifier: ^2.1.7
         version: 2.1.7(typescript@5.4.5)(vue@3.4.25(typescript@5.4.5))
@@ -66,6 +69,9 @@ importers:
       '@storybook/vue3-vite':
         specifier: ^8.0.9
         version: 8.0.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(vite@5.2.10(@types/node@20.12.7)(sass@1.75.0))(vue@3.4.25(typescript@5.4.5))
+      '@tanstack/vue-query-devtools':
+        specifier: ^5.45.0
+        version: 5.45.0(@tanstack/vue-query@5.32.0(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5))
       '@testing-library/jest-dom':
         specifier: ^6.4.2
         version: 6.4.2(vitest@1.5.2(@types/node@20.12.7)(jsdom@24.0.0)(sass@1.75.0))
@@ -147,6 +153,9 @@ importers:
       storybook:
         specifier: ^8.0.9
         version: 8.0.9(@babel/preset-env@7.24.4(@babel/core@7.24.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      storybook-vue3-router:
+        specifier: ^5.0.0
+        version: 5.0.0(@storybook/preview-api@8.0.9)(@storybook/vue3@8.0.9(vue@3.4.25(typescript@5.4.5)))(vue-router@4.3.2(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5))
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
@@ -1434,6 +1443,15 @@ packages:
 
   '@tanstack/query-core@5.32.0':
     resolution: {integrity: sha512-Z3flEgCat55DRXU5UMwYU1U+DgFZKA3iufyOKs+II7iRAo0uXkeU7PH5e6sOH1CGEag0IpKmZxlUFpCg6roSKw==}
+
+  '@tanstack/query-devtools@5.37.1':
+    resolution: {integrity: sha512-XcG4IIHIv0YQKrexTqo2zogQWR1Sz672tX2KsfE9kzB+9zhx44vRKH5si4WDILE1PIWQpStFs/NnrDQrBAUQpg==}
+
+  '@tanstack/vue-query-devtools@5.45.0':
+    resolution: {integrity: sha512-uowkqljtN4a2+Uk+ABy/O5vzolMcqpzrLxk14zlY/DdyF9jhhRLDUp9WoGjyeP7ThiZyJX2pkDmAUf9uxbAEzw==}
+    peerDependencies:
+      '@tanstack/vue-query': ^5.45.0
+      vue: ^3.3.0
 
   '@tanstack/vue-query@5.32.0':
     resolution: {integrity: sha512-lmTw3NZud+iT6EqbF1fYNE/7mA2lk3iD8KexF3scV2uWfeTE9diboNjNbZGyBHQSQOzmZJYh7Stnv+ARa8Femw==}
@@ -3307,6 +3325,9 @@ packages:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
 
+  lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
@@ -4317,6 +4338,19 @@ packages:
   store2@2.14.3:
     resolution: {integrity: sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==}
 
+  storybook-vue3-router@5.0.0:
+    resolution: {integrity: sha512-Q5ePPv8xyYT+9IzcEMSAQeCT8OlPDX0rfUfYCmiYDXsGPvvDej2Oyid3wyaxZmU/LXt1XzMDRO3v9qk/EN6pXg==}
+    peerDependencies:
+      '@storybook/preview-api': 7.x||>=7.0.0-rc.0
+      '@storybook/vue3': 7.x||>=7.0.0-rc.0
+      vue: 3.x
+      vue-router: 4.x
+    peerDependenciesMeta:
+      vue:
+        optional: true
+      vue-router:
+        optional: true
+
   storybook@8.0.9:
     resolution: {integrity: sha512-/Mvij0Br5bUwJpCvqAUZMEDIWmdRxEyllvVj8Ukw5lIWJePxfpSsz4px5jg9+R6B9tO8sQSqjg4HJvQ/pZk8Tg==}
     hasBin: true
@@ -4737,8 +4771,8 @@ packages:
   vue-component-type-helpers@2.0.14:
     resolution: {integrity: sha512-DInfgOyXlMyliyqAAD9frK28tTfch0+tMi4qoWJcZlRxUf+NFAtraJBnAsKLep+FOyLMiajkhfyEb3xLK08i7w==}
 
-  vue-component-type-helpers@2.0.19:
-    resolution: {integrity: sha512-cN3f1aTxxKo4lzNeQAkVopswuImUrb5Iurll9Gaw5cqpnbTAxtEMM1mgi6ou4X79OCyqYv1U1mzBHJkzmiK82w==}
+  vue-component-type-helpers@2.0.21:
+    resolution: {integrity: sha512-3NaicyZ7N4B6cft4bfb7dOnPbE9CjLcx+6wZWAg5zwszfO4qXRh+U52dN5r5ZZfc6iMaxKCEcoH9CmxxoFZHLg==}
 
   vue-demi@0.14.7:
     resolution: {integrity: sha512-EOG8KXDQNwkJILkx/gPcoL/7vH+hORoBaKgGe+6W7VFMvCYJfmF2dGbvgDroVnI8LU7/kTu8mbjRZGBU1z9NTA==}
@@ -6683,7 +6717,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.4.25(typescript@5.4.5)
-      vue-component-type-helpers: 2.0.19
+      vue-component-type-helpers: 2.0.21
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -6693,6 +6727,14 @@ snapshots:
       remove-accents: 0.5.0
 
   '@tanstack/query-core@5.32.0': {}
+
+  '@tanstack/query-devtools@5.37.1': {}
+
+  '@tanstack/vue-query-devtools@5.45.0(@tanstack/vue-query@5.32.0(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5))':
+    dependencies:
+      '@tanstack/query-devtools': 5.37.1
+      '@tanstack/vue-query': 5.32.0(vue@3.4.25(typescript@5.4.5))
+      vue: 3.4.25(typescript@5.4.5)
 
   '@tanstack/vue-query@5.32.0(vue@3.4.25(typescript@5.4.5))':
     dependencies:
@@ -8775,6 +8817,8 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
+  lodash-es@4.17.21: {}
+
   lodash.debounce@4.0.8: {}
 
   lodash.merge@4.6.2: {}
@@ -9768,6 +9812,14 @@ snapshots:
 
   store2@2.14.3: {}
 
+  storybook-vue3-router@5.0.0(@storybook/preview-api@8.0.9)(@storybook/vue3@8.0.9(vue@3.4.25(typescript@5.4.5)))(vue-router@4.3.2(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5)):
+    dependencies:
+      '@storybook/preview-api': 8.0.9
+      '@storybook/vue3': 8.0.9(vue@3.4.25(typescript@5.4.5))
+    optionalDependencies:
+      vue: 3.4.25(typescript@5.4.5)
+      vue-router: 4.3.2(vue@3.4.25(typescript@5.4.5))
+
   storybook@8.0.9(@babel/preset-env@7.24.4(@babel/core@7.24.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@storybook/cli': 8.0.9(@babel/preset-env@7.24.4(@babel/core@7.24.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10194,7 +10246,7 @@ snapshots:
 
   vue-component-type-helpers@2.0.14: {}
 
-  vue-component-type-helpers@2.0.19: {}
+  vue-component-type-helpers@2.0.21: {}
 
   vue-demi@0.14.7(vue@3.4.25(typescript@5.4.5)):
     dependencies:
