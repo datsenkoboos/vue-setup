@@ -4,5 +4,7 @@ import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
 
 <template>
   <VueQueryDevtools />
-  <RouterView />
+  <main class="relative w-full h-screen overflow-y-auto" id="app-main">
+    <RouterView />
+  </main>
 </template>

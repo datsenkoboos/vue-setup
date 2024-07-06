@@ -4,7 +4,15 @@ import {
   type RouteRecordRaw,
 } from 'vue-router';
 
-export const routes: RouteRecordRaw[] = [];
+import IndexView from '@/views/IndexView.vue';
+
+export const routes: RouteRecordRaw[] = [
+  {
+    name: 'index',
+    path: '/',
+    component: IndexView,
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
