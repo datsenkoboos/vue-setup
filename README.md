@@ -7,10 +7,10 @@
 $ pnpm install
 
 # serve dev server with hot reload
-$ pnpm run dev
+$ pnpm dev
 
 # serve storybook server with hot reload
-$ pnpm run dev:sb
+$ pnpm dev:sb
 ```
 
 ## Build
@@ -20,7 +20,7 @@ $ pnpm run dev:sb
 $ pnpm install
 
 # build project for production
-$ pnpm run build
+$ pnpm build
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://vitejs.dev/guide/).
