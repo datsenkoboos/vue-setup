@@ -30,7 +30,7 @@ export default function mountComposable(
   ...args: unknown[]
 ) {
   let options: Options = {};
-  let composable: (...args: unknown[]) => object;
+  let composable: Composable;
   let composableArguments: unknown[] = args;
 
   if (typeof optionsOrComposable === 'function') {

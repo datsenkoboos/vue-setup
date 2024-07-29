@@ -34,9 +34,7 @@ describe('mountComposable', () => {
     expect(testComposable).toHaveBeenCalledOnce();
     expect(testComposable).toHaveBeenCalledWith(...testArgs);
 
-    expect(wrapper.vm).toStrictEqual(
-      expect.objectContaining(testComposableData)
-    );
+    expect(wrapper.vm).toMatchObject(testComposableData);
   });
   test('should create valid vue wrapper without options provided', () => {
     const wrapper = mountComposable(testComposable, ...testArgs);
@@ -47,8 +45,6 @@ describe('mountComposable', () => {
     expect(testComposable).toHaveBeenCalledOnce();
     expect(testComposable).toHaveBeenCalledWith(...testArgs);
 
-    expect(wrapper.vm).toStrictEqual(
-      expect.objectContaining(testComposableData)
-    );
+    expect(wrapper.vm).toMatchObject(testComposableData);
   });
 });
