@@ -1,3 +1,4 @@
+// import './fonts';
 import './assets/styles/main.scss';
 
 import { createApp } from 'vue';
