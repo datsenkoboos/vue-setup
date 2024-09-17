@@ -7,6 +7,7 @@ import {
 import { vi } from 'vitest';
 
 type Options = ComponentMountingOptions<unknown>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Composable = (...args: any[]) => any;
 
 export default function mountComposable(

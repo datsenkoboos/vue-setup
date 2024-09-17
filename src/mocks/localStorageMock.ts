@@ -1,13 +1,15 @@
 import { vi } from 'vitest';
 
 const localStorageMock: Omit<Storage, 'length' | 'clear' | 'key'> = (() => {
-  let storage: { [key: string]: string } = {};
+  let storage = new Map<string, string>();
   return {
-    getItem: vi.fn((key: string) => storage[key]),
-    setItem: vi.fn((key: string, value: string) => (storage[key] = value)),
-    removeItem: vi.fn((key: string) => delete storage[key]),
+    getItem: vi.fn((key: string) => storage.get(key)),
+    setItem: vi.fn((key: string, value: string) => {
+      storage.set(key, value)
+    }),
+    removeItem: vi.fn((key: string) => storage.delete(key)),
     clear: () => {
-      storage = {};
+      storage = new Map();
     },
   };
 })();
