@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "check": "pnpm typecheck && pnpm lint",
-    "dev": "vite --host",
+    "dev": "vite",
     "dev:sb": "conc \"storybook dev -p 6006 --no-open\" \"pnpm build:sb-tailwind --watch\"",
     "test": "vitest"
   },
