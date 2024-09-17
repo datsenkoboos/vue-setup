@@ -43,5 +43,12 @@ export default [
     indent: 2,
     quotes: 'single',
     semi: true,
+    commaDangle: {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'only-multiline',
+    },
   }),
 ];
