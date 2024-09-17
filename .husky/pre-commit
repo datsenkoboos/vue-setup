@@ -1,1 +1,1 @@
-pnpm lint:fix
+./node_modules/.bin/nano-staged
