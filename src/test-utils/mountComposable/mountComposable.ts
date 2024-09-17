@@ -1,19 +1,21 @@
 import { defineComponent } from 'vue';
 import {
   mount,
-  VueWrapper,
+  type VueWrapper,
   type ComponentMountingOptions,
 } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 type Options = ComponentMountingOptions<unknown>;
-type Composable = (...args: unknown[]) => object;
+type Composable = (...args: any[]) => any;
+
 export default function mountComposable(
-  options: Options,
   composable: Composable,
   ...args: unknown[]
 ): VueWrapper;
 
 export default function mountComposable(
+  options: Options,
   composable: Composable,
   ...args: unknown[]
 ): VueWrapper;
@@ -48,11 +50,17 @@ export default function mountComposable(
     throw new Error('mountInComposable: Invalid arguments.');
   }
 
+  vi.clearAllMocks();
+
   const TestComponent = defineComponent({
     setup() {
-      return {
-        ...composable(...composableArguments),
-      };
+      const data = composable(...composableArguments);
+
+      return data && typeof data === 'object'
+        ? {
+            ...data,
+          }
+        : { data };
     },
     template: '<div>TestComponent</div>',
   });
