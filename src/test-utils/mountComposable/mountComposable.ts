@@ -1,19 +1,22 @@
 import { defineComponent } from 'vue';
 import {
   mount,
-  VueWrapper,
+  type VueWrapper,
   type ComponentMountingOptions,
 } from '@vue/test-utils';
+import { vi } from 'vitest';
 
 type Options = ComponentMountingOptions<unknown>;
-type Composable = (...args: unknown[]) => object;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Composable = (...args: any[]) => any;
+
 export default function mountComposable(
-  options: Options,
   composable: Composable,
   ...args: unknown[]
 ): VueWrapper;
 
 export default function mountComposable(
+  options: Options,
   composable: Composable,
   ...args: unknown[]
 ): VueWrapper;
@@ -38,21 +41,29 @@ export default function mountComposable(
     if (composableOrArgs) {
       composableArguments = [composableOrArgs, ...args];
     }
-  } else if (
-    typeof optionsOrComposable === 'object' &&
-    typeof composableOrArgs === 'function'
+  }
+  else if (
+    typeof optionsOrComposable === 'object'
+    && typeof composableOrArgs === 'function'
   ) {
     composable = composableOrArgs as Composable;
     options = optionsOrComposable as Options;
-  } else {
+  }
+  else {
     throw new Error('mountInComposable: Invalid arguments.');
   }
 
+  vi.clearAllMocks();
+
   const TestComponent = defineComponent({
     setup() {
-      return {
-        ...composable(...composableArguments),
-      };
+      const data = composable(...composableArguments);
+
+      return data && typeof data === 'object'
+        ? {
+            ...data,
+          }
+        : { data };
     },
     template: '<div>TestComponent</div>',
   });

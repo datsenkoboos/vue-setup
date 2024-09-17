@@ -9,11 +9,12 @@ const config: VueQueryPluginOptions = {
         retry: (failureCount, e) => {
           const error = e as AxiosError;
           if (
-            error.response?.status &&
-            [400, 403, 404].includes(error.response.status)
+            error.response?.status
+            && [400, 403, 404].includes(error.response.status)
           ) {
             return false;
-          } else {
+          }
+          else {
             return failureCount < 3;
           }
         },
