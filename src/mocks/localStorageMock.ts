@@ -5,7 +5,7 @@ const localStorageMock: Omit<Storage, 'length' | 'clear' | 'key'> = (() => {
   return {
     getItem: vi.fn((key: string) => storage.get(key)),
     setItem: vi.fn((key: string, value: string) => {
-      storage.set(key, value)
+      storage.set(key, value);
     }),
     removeItem: vi.fn((key: string) => storage.delete(key)),
     clear: () => {
