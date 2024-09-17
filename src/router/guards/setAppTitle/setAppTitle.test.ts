@@ -12,7 +12,7 @@ describe('setAppTitle', () => {
     document.title = '';
   });
 
-  test('should set valid title if specified in route metadata', () => {
+  test('should set valid title if both app title and page title are present', () => {
     const testRoute = {
       meta: {
         title: 'Test Title',
@@ -22,12 +22,25 @@ describe('setAppTitle', () => {
 
     expect(document.title).toBe(`${testRoute.meta.title} | ${appTitleMock}`);
   });
-  test('should set valid title if not specified in route metadata', () => {
+  test('should set valid title if only app title is present', () => {
     const testRoute = {
       meta: {},
     } as unknown as RouteLocationNormalized;
     setAppTitle(testRoute);
 
     expect(document.title).toBe(appTitleMock);
+  });
+  test('should not set title if app title is not present', () => {
+    vi.stubEnv('VITE_APP_TITLE', '');
+    document.title = 'default title';
+
+    const testRoute = {
+      meta: {
+        title: 'Test Title',
+      },
+    } as unknown as RouteLocationNormalized;
+    setAppTitle(testRoute);
+
+    expect(document.title).toBe('default title');
   });
 });
