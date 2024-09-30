@@ -41,15 +41,13 @@ export default function mountComposable(
     if (composableOrArgs) {
       composableArguments = [composableOrArgs, ...args];
     }
-  }
-  else if (
+  } else if (
     typeof optionsOrComposable === 'object'
     && typeof composableOrArgs === 'function'
   ) {
     composable = composableOrArgs as Composable;
     options = optionsOrComposable as Options;
-  }
-  else {
+  } else {
     throw new Error('mountInComposable: Invalid arguments.');
   }
 

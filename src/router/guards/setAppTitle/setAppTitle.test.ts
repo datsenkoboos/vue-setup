@@ -8,6 +8,7 @@ describe('setAppTitle', () => {
   beforeAll(() => {
     vi.stubEnv('VITE_APP_TITLE', appTitleMock);
   });
+
   afterEach(() => {
     document.title = '';
   });
@@ -22,6 +23,7 @@ describe('setAppTitle', () => {
 
     expect(document.title).toBe(`${testRoute.meta.title} | ${appTitleMock}`);
   });
+
   test('should set valid title if only app title is present', () => {
     const testRoute = {
       meta: {},
@@ -30,6 +32,7 @@ describe('setAppTitle', () => {
 
     expect(document.title).toBe(appTitleMock);
   });
+
   test('should not set title if app title is not present', () => {
     vi.stubEnv('VITE_APP_TITLE', '');
     document.title = 'default title';

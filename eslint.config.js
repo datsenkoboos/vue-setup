@@ -1,5 +1,6 @@
 import js from '@eslint/js';
 import ts from 'typescript-eslint';
+import vitest from '@vitest/eslint-plugin';
 import html from '@html-eslint/eslint-plugin';
 import vue from 'eslint-plugin-vue';
 import vueA11y from 'eslint-plugin-vuejs-accessibility';
@@ -39,10 +40,28 @@ export default [
     },
   },
 
+  {
+    ...vitest.configs.all,
+    files: ['**/*.{test,spec}.{ts,js}'],
+    rules: {
+      ...vitest.configs.all.rules,
+      'vitest/prefer-lowercase-title': ['warn', {
+        ignoreTopLevelDescribe: true,
+      }],
+      'vitest/no-hooks': 'off',
+      'vitest/consistent-test-it': ['warn', {
+        fn: 'test',
+        withinDescribe: 'test',
+      }],
+      'vitest/prefer-expect-assertions': 'off',
+    },
+  },
+
   stylistic.configs.customize({
     indent: 2,
     quotes: 'single',
     semi: true,
+    braceStyle: '1tbs',
     commaDangle: {
       arrays: 'always-multiline',
       objects: 'always-multiline',

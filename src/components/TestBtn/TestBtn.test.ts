@@ -22,6 +22,7 @@ describe('TestBtn', () => {
     mount(testSlotContent);
 
     const testBtn = screen.getByRole('button');
+
     expect(testBtn.textContent).toBe(testSlotContent);
   });
 });

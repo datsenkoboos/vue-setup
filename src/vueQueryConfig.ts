@@ -13,8 +13,7 @@ const config: VueQueryPluginOptions = {
             && [400, 403, 404].includes(error.response.status)
           ) {
             return false;
-          }
-          else {
+          } else {
             return failureCount < 3;
           }
         },
