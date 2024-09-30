@@ -22,6 +22,13 @@ export default [
   ...ts.configs.stylistic,
 
   ...vue.configs['flat/recommended'],
+  {
+    rules: {
+      'vue/block-order': ['warn', {
+        order: ['script', 'template', 'style'],
+      }],
+    },
+  },
   ...vueA11y.configs['flat/recommended'],
 
   {
