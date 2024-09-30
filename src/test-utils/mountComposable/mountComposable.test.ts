@@ -36,6 +36,7 @@ describe('mountComposable', () => {
 
     expect(wrapper.vm).toMatchObject(testComposableData);
   });
+
   test('should create valid vue wrapper without options provided', () => {
     const wrapper = mountComposable(testComposable, ...testArgs);
 
