@@ -20,6 +20,11 @@ export default [
   js.configs.recommended,
   ...ts.configs.strict,
   ...ts.configs.stylistic,
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': 'warn',
+    },
+  },
 
   ...vue.configs['flat/recommended'],
   {
