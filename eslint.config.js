@@ -22,7 +22,9 @@ export default [
   ...ts.configs.stylistic,
   {
     rules: {
-      '@typescript-eslint/no-unused-vars': 'warn',
+      '@typescript-eslint/no-unused-vars': ['warn', {
+        caughtErrors: 'none',
+      }],
     },
   },
 
@@ -87,6 +89,7 @@ export default [
       '@stylistic/no-trailing-spaces': 'warn',
       '@stylistic/no-multiple-empty-lines': 'warn',
       '@stylistic/semi': 'warn',
+      '@stylistic/indent': 'warn',
     },
   },
 ];
