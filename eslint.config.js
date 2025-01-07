@@ -18,6 +18,17 @@ export default [
   includeIgnoreFile(gitignorePath),
 
   js.configs.recommended,
+  {
+    rules: {
+      'no-empty': [
+        'warn',
+        {
+          allowEmptyCatch: true,
+        },
+      ],
+    },
+  },
+
   ...ts.configs.strict,
   ...ts.configs.stylistic,
   {
