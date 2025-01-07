@@ -1,7 +1,8 @@
 import { faker } from '@faker-js/faker';
+import { type ComponentMountingOptions, mount } from '@vue/test-utils';
+import { describe, expect, test, vi } from 'vitest';
+
 import mountComposable from './mountComposable';
-import { describe, test, expect, vi } from 'vitest';
-import { mount, type ComponentMountingOptions } from '@vue/test-utils';
 
 vi.mock('@vue/test-utils', async (importActual) => {
   const actual = await importActual<typeof import('@vue/test-utils')>();

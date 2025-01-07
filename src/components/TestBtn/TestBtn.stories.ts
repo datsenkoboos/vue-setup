@@ -1,5 +1,6 @@
-import TestBtn from './TestBtn.vue';
 import type { Meta } from '@storybook/vue3';
+
+import TestBtn from './TestBtn.vue';
 
 const meta: Meta<typeof TestBtn> = {
   component: TestBtn,

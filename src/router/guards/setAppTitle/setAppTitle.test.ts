@@ -1,6 +1,8 @@
 import type { RouteLocationNormalized } from 'vue-router';
+
+import { afterEach, beforeAll, describe, expect, test, vi } from 'vitest';
+
 import setAppTitle from './setAppTitle';
-import { describe, test, expect, vi, beforeAll, afterEach } from 'vitest';
 
 const appTitleMock = 'App Title';
 

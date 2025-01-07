@@ -1,7 +1,8 @@
-import { afterEach, beforeAll, expect, vi } from 'vitest';
 import * as matchers from '@testing-library/jest-dom/matchers';
-import { localStorageMock } from './src/mocks';
 import { cleanup } from '@testing-library/vue';
+import { afterEach, beforeAll, expect, vi } from 'vitest';
+
+import { localStorageMock } from './src/mocks';
 
 expect.extend(matchers);
 

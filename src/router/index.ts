@@ -1,26 +1,26 @@
+import IndexView from '@/views/IndexView.vue';
 import {
   createRouter,
   createWebHistory,
   type RouteRecordRaw,
 } from 'vue-router';
 
-import IndexView from '@/views/IndexView.vue';
 import { setAppTitle } from './guards';
 
 export const routes: RouteRecordRaw[] = [
   {
+    component: IndexView,
     name: 'index',
     path: '/',
-    component: IndexView,
   },
 
   {
-    path: '/:pathMatch(.*)*',
-    name: 'not-found',
     component: () => import('@/views/NotFoundView.vue'),
     meta: {
       title: '404',
     },
+    name: 'not-found',
+    path: '/:pathMatch(.*)*',
   },
 ];
 

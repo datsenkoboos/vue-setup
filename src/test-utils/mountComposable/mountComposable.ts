@@ -1,14 +1,14 @@
-import { defineComponent } from 'vue';
 import {
+  type ComponentMountingOptions,
   mount,
   type VueWrapper,
-  type ComponentMountingOptions,
 } from '@vue/test-utils';
 import { vi } from 'vitest';
+import { defineComponent } from 'vue';
 
-type Options = ComponentMountingOptions<unknown>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Composable = (...args: any[]) => any;
+type Options = ComponentMountingOptions<unknown>;
 
 export default function mountComposable(
   composable: Composable,
