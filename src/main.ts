@@ -1,16 +1,15 @@
 // import './fonts';
 import './assets/styles/main.css';
 
-import { createApp } from 'vue';
-import { createPinia } from 'pinia';
 import { VueQueryPlugin } from '@tanstack/vue-query';
-import vueQueryConfig from './vueQueryConfig';
-// import * as Sentry from '@sentry/vue';
+import { createPinia } from 'pinia';
+import { createApp } from 'vue';
 
 import App from './App.vue';
-import router from './router';
-
+// import * as Sentry from '@sentry/vue';
 import VFragment from './components/VFragment';
+import router from './router';
+import vueQueryConfig from './vueQueryConfig';
 
 const app = createApp(App);
 

@@ -1,7 +1,8 @@
-import TestBtn from './TestBtn.vue';
-import { describe, test, expect, beforeEach } from 'vitest';
-import { cleanup, render, screen } from '@testing-library/vue';
 import { faker } from '@faker-js/faker';
+import { cleanup, render, screen } from '@testing-library/vue';
+import { beforeEach, describe, expect, test } from 'vitest';
+
+import TestBtn from './TestBtn.vue';
 
 describe('TestBtn', () => {
   beforeEach(() => {

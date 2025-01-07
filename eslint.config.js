@@ -1,14 +1,14 @@
+import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
-import ts from 'typescript-eslint';
-import vitest from '@vitest/eslint-plugin';
 import html from '@html-eslint/eslint-plugin';
+import stylistic from '@stylistic/eslint-plugin';
+import vitest from '@vitest/eslint-plugin';
+import perfectionist from 'eslint-plugin-perfectionist';
 import vue from 'eslint-plugin-vue';
 import vueA11y from 'eslint-plugin-vuejs-accessibility';
-import stylistic from '@stylistic/eslint-plugin';
-
-import { includeIgnoreFile } from '@eslint/compat';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ts from 'typescript-eslint';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,8 +34,8 @@ export default [
   {
     rules: {
       '@typescript-eslint/no-unused-vars': ['warn', {
-        caughtErrors: 'none',
         argsIgnorePattern: '^_',
+        caughtErrors: 'none',
       }],
     },
   },
@@ -57,8 +57,8 @@ export default [
       ...html.configs['flat/recommended'].rules,
       '@html-eslint/indent': ['warn', 2],
       '@html-eslint/no-extra-spacing-attrs': ['warn', {
-        enforceBeforeSelfClose: true,
         disallowMissing: true,
+        enforceBeforeSelfClose: true,
       }],
       '@html-eslint/require-closing-tags': ['warn', {
         selfClosing: 'always',
@@ -71,37 +71,39 @@ export default [
     files: ['**/*.{test,spec}.{ts,js}'],
     rules: {
       ...vitest.configs.all.rules,
-      'vitest/prefer-lowercase-title': ['warn', {
-        ignoreTopLevelDescribe: true,
-      }],
-      'vitest/no-hooks': 'off',
       'vitest/consistent-test-it': ['warn', {
         fn: 'test',
         withinDescribe: 'test',
       }],
+      'vitest/no-hooks': 'off',
       'vitest/prefer-expect-assertions': 'off',
+      'vitest/prefer-lowercase-title': ['warn', {
+        ignoreTopLevelDescribe: true,
+      }],
     },
   },
 
   stylistic.configs.customize({
-    indent: 2,
-    quotes: 'single',
-    semi: true,
     braceStyle: '1tbs',
     commaDangle: {
       arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
       exports: 'always-multiline',
       functions: 'only-multiline',
+      imports: 'always-multiline',
+      objects: 'always-multiline',
     },
+    indent: 2,
+    quotes: 'single',
+    semi: true,
   }),
   {
     rules: {
-      '@stylistic/no-trailing-spaces': 'warn',
-      '@stylistic/no-multiple-empty-lines': 'warn',
-      '@stylistic/semi': 'warn',
       '@stylistic/indent': 'warn',
+      '@stylistic/no-multiple-empty-lines': 'warn',
+      '@stylistic/no-trailing-spaces': 'warn',
+      '@stylistic/semi': 'warn',
     },
   },
+
+  perfectionist.configs['recommended-natural'],
 ];

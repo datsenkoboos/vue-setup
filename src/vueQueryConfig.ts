@@ -5,7 +5,6 @@ const config: VueQueryPluginOptions = {
   queryClientConfig: {
     defaultOptions: {
       queries: {
-        throwOnError: true,
         retry: (failureCount, e) => {
           const error = e as AxiosError;
           if (
@@ -17,6 +16,7 @@ const config: VueQueryPluginOptions = {
             return failureCount < 3;
           }
         },
+        throwOnError: true,
       },
     },
   },
