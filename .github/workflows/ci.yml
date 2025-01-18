@@ -38,4 +38,4 @@ jobs:
         run: pnpm build:sb
 
       - name: Run visual regression tests
-        uses: lost-pixel/lost-pixel@3.3.0
+        uses: lost-pixel/lost-pixel@v3.22.0
