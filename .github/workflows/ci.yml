@@ -39,3 +39,9 @@ jobs:
 
       - name: Run visual regression tests
         uses: lost-pixel/lost-pixel@v3.22.0
+
+      - name: Save visual regression tests artifacts
+      - uses: actions/upload-artifact@v4.6.0
+        with:
+          name: lost-pixel-artifacts
+          path: .lostpixel
