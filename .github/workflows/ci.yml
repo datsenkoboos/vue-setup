@@ -46,4 +46,4 @@ jobs:
         uses: actions/upload-artifact@v4.6.0
         with:
           name: visual-regression
-          path: .lostpixel/
+          path: .lostpixel/difference/components-test-btn--primary.png
