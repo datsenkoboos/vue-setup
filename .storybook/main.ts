@@ -7,6 +7,9 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
   ],
+  core: {
+    disableTelemetry: true,
+  },
   docs: {
     autodocs: 'tag',
   },
