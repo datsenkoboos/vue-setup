@@ -33,3 +33,9 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      - name: Build Storybook for visual regression tests
+        run: pnpm build:sb
+
+      - name: Run visual regression tests
+        uses: lost-pixel/lost-pixel@3.22.0
