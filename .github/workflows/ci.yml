@@ -43,11 +43,7 @@ jobs:
 
       - name: Save visual regression artifacts
         if: failure() && steps.visual-regression.outcome == 'failure'
-        run: mkdir lostpixel && mv .lostpixel lostpixel
-
-      - name: Save visual regression artifacts
-        if: failure() && steps.visual-regression.outcome == 'failure'
         uses: actions/upload-artifact@v4.6.0
         with:
           name: visual-regression
-          path: lostpixel
+          path: .lostpixel/
