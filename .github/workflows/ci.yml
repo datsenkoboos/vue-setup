@@ -47,3 +47,4 @@ jobs:
         with:
           name: visual-regression
           path: .lostpixel/
+          retention-days: 7
