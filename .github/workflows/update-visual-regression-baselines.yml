@@ -1,0 +1,40 @@
+name: Update visual regression baseline images
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Storybook
+        run: pnpm build:sb
+
+      - name: Update baselines
+        id: update
+        uses: lost-pixel/lost-pixel@v3.22.0
+        env:
+          LOST_PIXEL_MODE: update
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v4
+        if: ${{ failure() && steps.update.conclusion == 'failure' }}
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          commit-message: update visual regression baselines
+          delete-branch: true
+          branch: 'visual-regression-baselines-update/${{ github.ref_name }}'
+          title: 'Visual regression baselines update - ${{ github.ref_name }}'
+          body: Automated baseline update PR created by Lost Pixel
