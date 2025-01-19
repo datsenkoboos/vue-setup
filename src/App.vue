@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { VueQueryDevtools } from '@tanstack/vue-query-devtools';
-
-// test comment
 </script>
 
 <template>

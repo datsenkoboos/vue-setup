@@ -1,4 +1,4 @@
-name: CI
+name: Visual regression
 
 on:
   pull_request:
@@ -23,11 +23,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run check (check linting, formatting, types)
-        run: pnpm check
+      - name: Build Storybook
+        run: pnpm build:sb
 
-      - name: Run unit tests
-        run: pnpm test:unit
-
-      - name: Build
-        run: pnpm build
+      - name: Run visual regression tests
+        uses: lost-pixel/lost-pixel@v3.22.0
+        env:
+          LOST_PIXEL_DISABLE_TELEMETRY: 1
