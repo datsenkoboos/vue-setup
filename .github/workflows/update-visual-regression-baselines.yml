@@ -1,4 +1,4 @@
-name: Update visual regression baseline images
+name: Update visual regression baselines
 
 on: workflow_dispatch
 
