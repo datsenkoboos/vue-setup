@@ -32,4 +32,9 @@ coverage
 .storybook/compiled.css
 .storybook/compiled.css.map
 
+.storybook-regression/main.css
+.storybook-regression/main.css.map
+.storybook-regression/compiled.css
+.storybook-regression/compiled.css.map
+
 public/mockServiceWorker.js
