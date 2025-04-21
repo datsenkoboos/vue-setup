@@ -11,7 +11,7 @@
     "build:sb-tailwind": "pnpm exec tailwindcss -i ./src/assets/styles/main.css -o .storybook/compiled.css --minify",
     "build:sb-tailwind:regression": "pnpm exec tailwindcss -i ./src/assets/styles/main.css -o .storybook-regression/compiled.css --minify",
     "build:sb": "pnpm build:sb-tailwind && storybook build",
-    "build:sb:regression": "pnpm build:sb-tailwind && storybook build -c ./.storybook-regression",
+    "build:sb:regression": "pnpm build:sb-tailwind:regression && storybook build -c ./.storybook-regression",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint --fix .",
