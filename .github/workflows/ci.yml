@@ -7,27 +7,135 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  setup:
+      name: Setup
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          
+        - name: Install pnpm
+          uses: pnpm/action-setup@v4
+            
+        - name: Set up Node
+          uses: actions/setup-node@v4
+          with:
+            node-version: 'lts/*'
+            cache: 'pnpm'
+            
+        - name: Install dependencies
+          run: pnpm install
+
+  lint:
+    name: Check (linting, formatting, types)
+    needs: setup
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
       - name: Install pnpm
         uses: pnpm/action-setup@v4
+          
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
           cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+          
+      - name: Run check
+        run: pnpm check
 
+  tests:
+    name: Unit Tests
+    needs: setup
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shardIndex: [1, 2, 3, 4]
+        shardTotal: [4]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+          
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+          
+      - name: Run unit tests
+        run: pnpm test:unit --reporter=blob --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+
+      - name: Upload blob report to GitHub Actions Artifacts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: blob-report-${{ matrix.shardIndex }}
+          path: .vitest-reports/*
+          include-hidden-files: true
+          retention-days: 1
+
+  merge-tests-reports:
+    if: ${{ !cancelled() }}
+    name: Merge Unit Tests Reports
+    needs: [tests]
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+          
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+          
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run check (check linting, formatting, types)
-        run: pnpm check
+      - name: Download blob reports from GitHub Actions Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: .vitest-reports
+          pattern: blob-report-*
+          merge-multiple: true
 
-      - name: Run unit tests
-        run: pnpm test:unit
+      - name: Merge reports
+        run: pnpm test:unit --merge-reports
 
+  build:
+    name: Build
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+          
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+          
       - name: Build
         run: pnpm build
