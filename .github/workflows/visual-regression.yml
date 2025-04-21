@@ -9,6 +9,7 @@ on:
 jobs:
   visual-regression:
     runs-on: ubuntu-latest
+    name: Visual regression
     steps:
       - name: Checkout
         uses: actions/checkout@v4
