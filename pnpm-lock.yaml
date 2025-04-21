@@ -124,8 +124,8 @@ importers:
         specifier: ^2.4.6
         version: 2.4.6
       '@vue/tsconfig':
-        specifier: ^0.5.1
-        version: 0.5.1
+        specifier: ^0.7.0
+        version: 0.7.0(typescript@5.4.5)(vue@3.5.6(typescript@5.4.5))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.47)
@@ -1731,8 +1731,16 @@ packages:
   '@vue/test-utils@2.4.6':
     resolution: {integrity: sha512-FMxEjOpYNYiFe0GkaHsnJPXFHxQ6m4t8vI/ElPGpMWxZKpmRvQ33OIrvRXemy6yha03RxhOlQuy+gZMC3CQSow==}
 
-  '@vue/tsconfig@0.5.1':
-    resolution: {integrity: sha512-VcZK7MvpjuTPx2w6blwnwZAu5/LgBUtejFOi3pPGQFXQN5Ela03FUtd2Qtg4yWGGissVL0dr6Ro1LfOFh+PCuQ==}
+  '@vue/tsconfig@0.7.0':
+    resolution: {integrity: sha512-ku2uNz5MaZ9IerPPUyOHzyjhXoX2kVJaVf7hL315DC17vS6IiZRmmCPfggNbU16QTvM80+uYYy3eYJB59WCtvg==}
+    peerDependencies:
+      typescript: 5.x
+      vue: ^3.4.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vue:
+        optional: true
 
   '@vueuse/components@10.11.1':
     resolution: {integrity: sha512-ThcreQCX/eq61sLkLKjigD4PQvs3Wy4zglICvQH9tP6xl87y5KsQEoizn6OI+R3hrOgwQHLJe7Y0wLLh3fBKcg==}
@@ -2325,6 +2333,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   esm-resolve@1.0.11:
@@ -2954,6 +2963,7 @@ packages:
 
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
 
   lodash.kebabcase@4.1.1:
     resolution: {integrity: sha512-N8XRTIMMqqDgSy4VLKPnJ/+hpGZN+PHQiJnSenYqPaVV/NCqEogTnAdZLQiGKhxX+JCs8waWq2t1XHWKOmlY8g==}
@@ -5761,7 +5771,10 @@ snapshots:
       js-beautify: 1.15.1
       vue-component-type-helpers: 2.1.6
 
-  '@vue/tsconfig@0.5.1': {}
+  '@vue/tsconfig@0.7.0(typescript@5.4.5)(vue@3.5.6(typescript@5.4.5))':
+    optionalDependencies:
+      typescript: 5.4.5
+      vue: 3.5.6(typescript@5.4.5)
 
   '@vueuse/components@10.11.1(vue@3.5.6(typescript@5.4.5))':
     dependencies:
