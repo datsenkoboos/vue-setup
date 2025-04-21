@@ -7,11 +7,15 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
   ],
+  build: {
+    test: {
+      disableAutoDocs: true,
+      disableBlocks: true,
+      disableDocgen: true,
+    },
+  },
   core: {
     disableTelemetry: true,
-  },
-  docs: {
-    autodocs: 'tag',
   },
   framework: {
     name: '@storybook/vue3-vite',

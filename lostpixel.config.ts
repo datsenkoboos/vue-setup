@@ -6,4 +6,6 @@ export const config: CustomProjectConfig = {
   storybookShots: {
     storybookUrl: './storybook-static',
   },
+  threshold: 100,
+  waitBeforeScreenshot: 5000,
 };

@@ -3,8 +3,9 @@ name: Update visual regression baselines
 on: workflow_dispatch
 
 jobs:
-  build:
+  update-baselines:
     runs-on: ubuntu-latest
+    name: Update visual regression baselines
     steps:
       - name: Checkout
         uses: actions/checkout@v4
