@@ -49,7 +49,7 @@ jobs:
       - name: Run check
         run: pnpm check
 
-  tests:
+  unit-tests:
     name: Unit Tests
     needs: setup
     runs-on: ubuntu-latest
@@ -88,7 +88,7 @@ jobs:
   merge-tests-reports:
     if: ${{ !cancelled() }}
     name: Merge Unit Tests Reports
-    needs: [tests]
+    needs: [unit-tests]
 
     runs-on: ubuntu-latest
     steps:
@@ -139,3 +139,31 @@ jobs:
           
       - name: Build
         run: pnpm build
+  
+  visual-regression-tests:
+    name: Visual Regression Tests
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+          
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+          cache: 'pnpm'
+          
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build Storybook
+        run: pnpm build:sb:regression
+
+      - name: Run regression tests
+        uses: lost-pixel/lost-pixel@v3.22.0
+        env:
+          LOST_PIXEL_DISABLE_TELEMETRY: 1
