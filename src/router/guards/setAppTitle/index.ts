@@ -1,2 +1,1 @@
-import setAppTitle from './setAppTitle';
-export default setAppTitle;
+export { default } from './setAppTitle'

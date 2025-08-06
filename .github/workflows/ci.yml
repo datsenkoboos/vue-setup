@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    branches: ['main']
+    branches: ['main', 'qa', 'dev']
 
   workflow_dispatch:
 
@@ -55,8 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        shardIndex: [1, 2, 3, 4]
-        shardTotal: [4]
+        shardIndex: [1, 2, 3]
+        shardTotal: [3]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -74,6 +74,8 @@ jobs:
         run: pnpm install
           
       - name: Run unit tests
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
         run: pnpm test:unit --reporter=blob --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - name: Upload blob report to GitHub Actions Artifacts
@@ -115,6 +117,8 @@ jobs:
           merge-multiple: true
 
       - name: Merge reports
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
         run: pnpm test:unit --merge-reports
 
   build:
@@ -167,3 +171,10 @@ jobs:
         uses: lost-pixel/lost-pixel@v3.22.0
         env:
           LOST_PIXEL_DISABLE_TELEMETRY: 1
+
+      - name: Upload regression tests artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: regression-tests-artifacts
+          path: .lostpixel

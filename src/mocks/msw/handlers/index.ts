@@ -1,8 +1,4 @@
-import {
-  type HttpHandler,
-  //   HttpResponse,
-  //   http,
-} from 'msw';
+import type { HttpHandler } from 'msw'
 
-const handlers: HttpHandler[] = [];
-export default handlers;
+const handlers: HttpHandler[] = []
+export default handlers

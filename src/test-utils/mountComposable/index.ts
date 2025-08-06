@@ -1,2 +1,1 @@
-import mountComposable from './mountComposable';
-export default mountComposable;
+export { default } from './mountComposable'

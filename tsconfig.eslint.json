@@ -1,0 +1,8 @@
+{
+    "include": [
+        ".storybook/**/*",
+        ".storybook-regression/**/*",
+        "vitest.setup.ts",
+        "lostpixel.config.ts"
+    ],
+}
