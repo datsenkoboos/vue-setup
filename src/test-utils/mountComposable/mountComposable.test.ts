@@ -1,7 +1,7 @@
 import type { ComponentMountingOptions } from '@vue/test-utils'
 import { faker } from '@faker-js/faker'
 import { mount } from '@vue/test-utils'
-import { describe, expect, test, vi } from 'vitest'
+import { afterEach, describe, expect, test, vi } from 'vitest'
 import mountComposable from './mountComposable'
 
 vi.mock('@vue/test-utils', async (importActual) => {
@@ -21,6 +21,10 @@ const testComposable = vi.fn(() => testComposableData)
 const testArgs = [1, 3, { name: 'user' }]
 
 describe('mountComposable', () => {
+  afterEach(() => {
+    vi.clearAllMocks()
+  })
+
   test('should create valid vue wrapper with options provided', () => {
     const testOptions: ComponentMountingOptions<unknown> = {
       global: {

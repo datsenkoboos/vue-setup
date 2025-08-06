@@ -19,6 +19,7 @@ describe('TestBtn', () => {
 
   test('should render slot content', () => {
     const testSlotContent = faker.string.uuid()
+
     mount(testSlotContent)
 
     const testButton = screen.getByRole('button')

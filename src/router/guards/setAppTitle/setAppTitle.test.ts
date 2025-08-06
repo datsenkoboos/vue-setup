@@ -19,6 +19,7 @@ describe('setAppTitle', () => {
         title: 'Test Title',
       },
     } as unknown as RouteLocationNormalized
+
     setAppTitle(testRoute)
 
     expect(document.title).toBe(`${testRoute.meta.title} | ${appTitleMock}`)
@@ -28,6 +29,7 @@ describe('setAppTitle', () => {
     const testRoute = {
       meta: {},
     } as unknown as RouteLocationNormalized
+
     setAppTitle(testRoute)
 
     expect(document.title).toBe(appTitleMock)
@@ -42,6 +44,7 @@ describe('setAppTitle', () => {
         title: 'Test Title',
       },
     } as unknown as RouteLocationNormalized
+
     setAppTitle(testRoute)
 
     expect(document.title).toBe('default title')
