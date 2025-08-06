@@ -55,8 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        shardIndex: [1, 2, 3, 4]
-        shardTotal: [4]
+        shardIndex: [1, 2, 3]
+        shardTotal: [3]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
