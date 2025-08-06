@@ -1,7 +1,5 @@
-import { fileURLToPath } from 'node:url';
-import { configDefaults, defineConfig, mergeConfig } from 'vitest/config';
-
-import viteConfig from './vite.config';
+import { configDefaults, defineConfig, mergeConfig } from 'vitest/config'
+import viteConfig from './vite.config'
 
 export default mergeConfig(
   viteConfig,
@@ -12,8 +10,8 @@ export default mergeConfig(
       exclude: [...configDefaults.exclude, 'e2e/**'],
       globals: true,
       pool: 'threads',
-      root: fileURLToPath(new URL('./', import.meta.url)),
+      root: import.meta.dirname,
       setupFiles: './vitest.setup.ts',
     },
   }),
-);
+)

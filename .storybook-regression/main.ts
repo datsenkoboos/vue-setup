@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/vue3-vite';
+import type { StorybookConfig } from '@storybook/vue3-vite'
 
 const config: StorybookConfig = {
   addons: [
@@ -22,5 +22,5 @@ const config: StorybookConfig = {
     options: {},
   },
   stories: ['../src/**/*.stories.@(ts|tsx)'],
-};
-export default config;
+}
+export default config

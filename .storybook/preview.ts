@@ -1,21 +1,19 @@
-import { type Preview, setup } from '@storybook/vue3';
-import { VueQueryPlugin } from '@tanstack/vue-query';
+import '@/fonts'
+import './compiled.css'
+import type { Preview } from '@storybook/vue3'
+import type { App } from 'vue'
+import { setup } from '@storybook/vue3'
+import { VueQueryPlugin } from '@tanstack/vue-query'
+import { createPinia } from 'pinia'
+import { vueRouter } from 'storybook-vue3-router'
+import { routes } from '../src/router'
 
-import './compiled.css';
-
-import '@/fonts';
-import { createPinia } from 'pinia';
-import { vueRouter } from 'storybook-vue3-router';
-import { type App } from 'vue';
-
-import { routes } from '../src/router';
-
-const pinia = createPinia();
+const pinia = createPinia()
 
 setup((app: App) => {
-  app.use(pinia);
-  app.use(VueQueryPlugin);
-});
+  app.use(pinia)
+  app.use(VueQueryPlugin)
+})
 
 const preview: Preview = {
   decorators: [vueRouter(routes)],
@@ -23,10 +21,10 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i,
+        date: /date$/i,
       },
     },
   },
-};
+}
 
-export default preview;
+export default preview

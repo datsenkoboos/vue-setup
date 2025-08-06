@@ -1,11 +1,10 @@
-import IndexView from '@/views/IndexView.vue';
+import type { RouteRecordRaw } from 'vue-router'
 import {
   createRouter,
   createWebHistory,
-  type RouteRecordRaw,
-} from 'vue-router';
-
-import { setAppTitle } from './guards';
+} from 'vue-router'
+import { setAppTitle } from './guards'
+import IndexView from '@/views/IndexView.vue'
 
 export const routes: RouteRecordRaw[] = [
   {
@@ -22,13 +21,13 @@ export const routes: RouteRecordRaw[] = [
     name: 'not-found',
     path: '/:pathMatch(.*)*',
   },
-];
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-});
+})
 
-router.beforeEach(setAppTitle);
+router.beforeEach(setAppTitle)
 
-export default router;
+export default router

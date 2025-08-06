@@ -1,4 +1,4 @@
-import { CustomProjectConfig } from 'lost-pixel';
+import { CustomProjectConfig } from 'lost-pixel'
 
 export const config: CustomProjectConfig = {
   failOnDifference: true,
@@ -8,4 +8,4 @@ export const config: CustomProjectConfig = {
   },
   threshold: 100,
   waitBeforeScreenshot: 5000,
-};
+}

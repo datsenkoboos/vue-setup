@@ -1,25 +1,23 @@
 // import './fonts';
-import './assets/styles/main.css';
-
-import { VueQueryPlugin } from '@tanstack/vue-query';
-import { createPinia } from 'pinia';
-import { createApp } from 'vue';
-
-import App from './App.vue';
+import './assets/styles/main.css'
+import { VueQueryPlugin } from '@tanstack/vue-query'
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+import App from './App.vue'
 // import * as Sentry from '@sentry/vue';
-import VFragment from './components/VFragment';
-import router from './router';
-import vueQueryConfig from './vueQueryConfig';
+import VFragment from './components/VFragment.vue'
+import router from './router'
+import vueQueryConfig from './vue-query-config'
 
-const app = createApp(App);
+const app = createApp(App)
 
 // app.config.errorHandler = (e) => {
 //   Sentry.captureException(e);
 // };
 
-app.use(createPinia());
-app.use(router);
-app.use(VueQueryPlugin, vueQueryConfig);
+app.use(createPinia())
+app.use(router)
+app.use(VueQueryPlugin, vueQueryConfig)
 
 // if (
 //   import.meta.env.PROD
@@ -36,6 +34,6 @@ app.use(VueQueryPlugin, vueQueryConfig);
 //   });
 // }
 
-app.component('VFragment', VFragment);
+app.component('VFragment', VFragment)
 
-app.mount('#app');
+app.mount('#app')

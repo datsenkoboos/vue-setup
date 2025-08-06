@@ -1,5 +1,1 @@
-import localStorageMock from './localStorageMock';
-
-export {
-  localStorageMock,
-};
+export { default as localStorageMock } from './localStorageMock'

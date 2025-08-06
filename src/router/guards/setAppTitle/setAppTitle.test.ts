@@ -1,51 +1,49 @@
-import type { RouteLocationNormalized } from 'vue-router';
+import type { RouteLocationNormalized } from 'vue-router'
+import { afterEach, beforeAll, describe, expect, test, vi } from 'vitest'
+import setAppTitle from './setAppTitle'
 
-import { afterEach, beforeAll, describe, expect, test, vi } from 'vitest';
-
-import setAppTitle from './setAppTitle';
-
-const appTitleMock = 'App Title';
+const appTitleMock = 'App Title'
 
 describe('setAppTitle', () => {
   beforeAll(() => {
-    vi.stubEnv('VITE_APP_TITLE', appTitleMock);
-  });
+    vi.stubEnv('VITE_APP_TITLE', appTitleMock)
+  })
 
   afterEach(() => {
-    document.title = '';
-  });
+    document.title = ''
+  })
 
   test('should set valid title if both app title and page title are present', () => {
     const testRoute = {
       meta: {
         title: 'Test Title',
       },
-    } as unknown as RouteLocationNormalized;
-    setAppTitle(testRoute);
+    } as unknown as RouteLocationNormalized
+    setAppTitle(testRoute)
 
-    expect(document.title).toBe(`${testRoute.meta.title} | ${appTitleMock}`);
-  });
+    expect(document.title).toBe(`${testRoute.meta.title} | ${appTitleMock}`)
+  })
 
   test('should set valid title if only app title is present', () => {
     const testRoute = {
       meta: {},
-    } as unknown as RouteLocationNormalized;
-    setAppTitle(testRoute);
+    } as unknown as RouteLocationNormalized
+    setAppTitle(testRoute)
 
-    expect(document.title).toBe(appTitleMock);
-  });
+    expect(document.title).toBe(appTitleMock)
+  })
 
   test('should not set title if app title is not present', () => {
-    vi.stubEnv('VITE_APP_TITLE', '');
-    document.title = 'default title';
+    vi.stubEnv('VITE_APP_TITLE', '')
+    document.title = 'default title'
 
     const testRoute = {
       meta: {
         title: 'Test Title',
       },
-    } as unknown as RouteLocationNormalized;
-    setAppTitle(testRoute);
+    } as unknown as RouteLocationNormalized
+    setAppTitle(testRoute)
 
-    expect(document.title).toBe('default title');
-  });
-});
+    expect(document.title).toBe('default title')
+  })
+})
