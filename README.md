@@ -1,30 +1,57 @@
 # Vue Setup
 
-## Development
+## Setup
+
+Make sure to install the dependencies:
 
 ```bash
-# install dependencies
-$ pnpm install
-
-# serve dev server with hot reload
-$ pnpm dev
-
-# serve storybook server with hot reload
-$ pnpm dev:sb
+pnpm install
 ```
 
-## Build
+## Required environment variables
+
+See [.env.example](./.env.example).
+
+## Development Server
+
+Start development server on `http://localhost:3000`:
 
 ```bash
-# install dependencies
-$ pnpm install
-
-# build project for production
-$ pnpm build
+pnpm dev
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://vitejs.dev/guide/).
+Start Storybook server on `http://localhost:6006`:
 
-### Required environment variables
+```bash
+pnpm dev:sb
+```
 
-see [.env.example](./.env.example)
+## Production
+
+Build application for production:
+
+```bash
+pnpm build
+```
+
+Locally preview production build:
+
+```bash
+pnpm preview
+```
+
+## Testing
+
+We use [Vitest](https://vitest.dev/) for module and component testing.
+
+```bash
+# Run unit tests
+$ pnpm test:unit
+
+# Run typecheck
+$ pnpm typecheck
+
+# Run lint
+$ pnpm lint
+```
+
