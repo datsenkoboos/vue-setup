@@ -18,8 +18,8 @@ importers:
         specifier: ^13.6.0
         version: 13.6.0(vue@3.5.18(typescript@5.9.2))
       '@vueuse/core':
-        specifier: ^13.6.0
-        version: 13.6.0(vue@3.5.18(typescript@5.9.2))
+        specifier: ^14.1.0
+        version: 14.1.0(vue@3.5.18(typescript@5.9.2))
       axios:
         specifier: ^1.11.0
         version: 1.11.0
@@ -1685,11 +1685,24 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
+  '@vueuse/core@14.1.0':
+    resolution: {integrity: sha512-rgBinKs07hAYyPF834mDTigH7BtPqvZ3Pryuzt1SD/lg5wEcWqvwzXXYGEDb2/cP0Sj5zSvHl3WkmMELr5kfWw==}
+    peerDependencies:
+      vue: ^3.5.0
+
   '@vueuse/metadata@13.6.0':
     resolution: {integrity: sha512-rnIH7JvU7NjrpexTsl2Iwv0V0yAx9cw7+clymjKuLSXG0QMcLD0LDgdNmXic+qL0SGvgSVPEpM9IDO/wqo1vkQ==}
 
+  '@vueuse/metadata@14.1.0':
+    resolution: {integrity: sha512-7hK4g015rWn2PhKcZ99NyT+ZD9sbwm7SGvp7k+k+rKGWnLjS/oQozoIZzWfCewSUeBmnJkIb+CNr7Zc/EyRnnA==}
+
   '@vueuse/shared@13.6.0':
     resolution: {integrity: sha512-pDykCSoS2T3fsQrYqf9SyF0QXWHmcGPQ+qiOVjlYSzlWd9dgppB2bFSM1GgKKkt7uzn0BBMV3IbJsUfHG2+BCg==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@vueuse/shared@14.1.0':
+    resolution: {integrity: sha512-EcKxtYvn6gx1F8z9J5/rsg3+lTQnvOruQd8fUecW99DCK04BkWD7z5KQ/wTAx+DazyoEE9dJt/zV8OIEQbM6kw==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -3989,8 +4002,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.1.2:
-    resolution: {integrity: sha512-ch3/SKBtxdZq18vsEntiGCdSszCRNfhX5QaTxjSacCAXLlNQRXfXo+ANjoQEYJMsJOJy1/vHF6Tkc4s85MS+zw==}
+  vue-component-type-helpers@3.1.8:
+    resolution: {integrity: sha512-oaowlmEM6BaYY+8o+9D9cuzxpWQWHqHTMKakMxXu0E+UCIOMTljyIPO15jcnaCwJtZu/zWDotK7mOIHvWD9mcw==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -4900,7 +4913,7 @@ snapshots:
       storybook: 9.1.1(@testing-library/dom@10.4.0)(msw@2.10.4(@types/node@24.2.0)(typescript@5.9.2))(prettier@3.6.2)(vite@7.0.6(@types/node@24.2.0)(jiti@2.6.1)(lightningcss@1.30.2))
       type-fest: 2.19.0
       vue: 3.5.18(typescript@5.9.2)
-      vue-component-type-helpers: 3.1.2
+      vue-component-type-helpers: 3.1.8
 
   '@stylistic/eslint-plugin@5.2.2(eslint@9.32.0(jiti@2.6.1))':
     dependencies:
@@ -5569,9 +5582,22 @@ snapshots:
       '@vueuse/shared': 13.6.0(vue@3.5.18(typescript@5.9.2))
       vue: 3.5.18(typescript@5.9.2)
 
+  '@vueuse/core@14.1.0(vue@3.5.18(typescript@5.9.2))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 14.1.0
+      '@vueuse/shared': 14.1.0(vue@3.5.18(typescript@5.9.2))
+      vue: 3.5.18(typescript@5.9.2)
+
   '@vueuse/metadata@13.6.0': {}
 
+  '@vueuse/metadata@14.1.0': {}
+
   '@vueuse/shared@13.6.0(vue@3.5.18(typescript@5.9.2))':
+    dependencies:
+      vue: 3.5.18(typescript@5.9.2)
+
+  '@vueuse/shared@14.1.0(vue@3.5.18(typescript@5.9.2))':
     dependencies:
       vue: 3.5.18(typescript@5.9.2)
 
@@ -7928,7 +7954,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.1.2: {}
+  vue-component-type-helpers@3.1.8: {}
 
   vue-demi@0.14.10(vue@3.5.18(typescript@5.9.2)):
     dependencies:

@@ -31,7 +31,7 @@
     "@sentry/vue": "^10.22.0",
     "@tanstack/vue-query": "^5.83.1",
     "@vueuse/components": "^13.6.0",
-    "@vueuse/core": "^13.6.0",
+    "@vueuse/core": "^14.1.0",
     "axios": "^1.11.0",
     "lodash-es": "^4.17.21",
     "pinia": "^3.0.3",
