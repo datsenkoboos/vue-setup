@@ -1,0 +1,19 @@
+import { defineConfig } from 'eslint-config-fans'
+import oxlint from 'eslint-plugin-oxlint'
+
+export default defineConfig(
+  {
+    typescript: true,
+    vue: {
+      a11y: true,
+    },
+    test: true,
+    query: true,
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-unsafe-argument': 'off',
+    },
+  },
+  oxlint.buildFromOxlintConfigFile('./oxlint.config.ts'),
+)

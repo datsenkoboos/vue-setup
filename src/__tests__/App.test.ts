@@ -1,10 +1,13 @@
-import { describe, it, expect } from 'vitest'
-
 import { mount } from '@vue/test-utils'
+import { describe, test, expect, beforeAll, vi } from 'vitest'
 import App from '../App.vue'
 
 describe('App', () => {
-  it('mounts renders properly', () => {
+  beforeAll(() => {
+    vi.useFakeTimers()
+  })
+
+  test('mounts renders properly', () => {
     const wrapper = mount(App)
     expect(wrapper.text()).toContain('You did it!')
   })

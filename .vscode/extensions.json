@@ -1,6 +1,8 @@
 {
   "recommendations": [
     "Vue.volar",
-    "vitest.explorer"
+    "vitest.explorer",
+    "oxc.oxc-vscode",
+    "streetsidesoftware.code-spell-checker"
   ]
 }

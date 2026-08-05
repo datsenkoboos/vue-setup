@@ -1,0 +1,5 @@
+pre-commit:
+  jobs:
+    - name: format
+      run: pnpm fmt '{staged_files}'
+      stage_fixed: true
