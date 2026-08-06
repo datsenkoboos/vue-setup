@@ -2,8 +2,8 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "tsconfig.json": "tsconfig.*.json, env.d.ts, typed-router.d.ts",
-    "vite.config.*": "jsconfig*, vitest.config.*, playwright.config.*",
-    "package.json": "package-lock.json, pnpm*, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*"
+    "vite.config.*": "jsconfig*, vitest.config.*, playwright.config.*, vitest.setup*",
+    "package.json": "package-lock.json, pnpm*, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, oxfmt*"
   },
   "editor.defaultFormatter": "oxc.oxc-vscode"
 }
