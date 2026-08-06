@@ -8,7 +8,8 @@
     "playwright.config.*",
     "eslint.config.*",
     "oxlint.config.*",
-    "oxfmt.config.*"
+    "oxfmt.config.*",
+    ".storybook/*.ts"
   ],
   "compilerOptions": {
     // Most tools use transpilation instead of Node.js's native type-stripping.
