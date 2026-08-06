@@ -1,12 +1,11 @@
 import type { OxlintConfig } from 'oxlint'
-import { GLOB_TESTS } from 'eslint-config-fans'
 import { defineConfig } from 'oxc-config-fans/oxlint'
 
 const overrides: OxlintConfig = {
   jsPlugins: ['eslint-plugin-storybook'],
   overrides: [
     {
-      files: GLOB_TESTS,
+      files: ['**/*.spec.{ts,tsx}', '**/*.test.{ts,tsx}'],
       plugins: ['vitest'],
       rules: {
         'vitest/consistent-test-it': [
@@ -23,6 +22,8 @@ const overrides: OxlintConfig = {
             allTestPattern: String.raw`.*\.(test|spec)\.[tj]sx?$`,
           },
         ],
+        'vitest/no-focused-tests': 'warn',
+        'vitest/no-disabled-tests': 'off',
       },
     },
     {

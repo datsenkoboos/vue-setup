@@ -8,6 +8,7 @@ export default mergeConfig(
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/**'],
       root: import.meta.dirname,
+      setupFiles: './vitest.setup.ts',
     },
   }),
 )
