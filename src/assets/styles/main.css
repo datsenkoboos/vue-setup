@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@theme {
+}
+
+@layer components {
+  .skeleton-loader {
+    animation: skeleton-pulse 6s infinite ease-in-out;
+  }
+}
+
+@utility focus-outline {
+  @apply focus-visible:outline-2 focus-visible:outline-current;
+}
+
+@utility hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer base {
+  html {
+    scrollbar-gutter: stable;
+
+    :where(
+      button:not(.custom-outline),
+      a:not(.custom-outline),
+      input:not(.custom-outline),
+      textarea:not(.custom-outline),
+      select:not(.custom-outline)
+    ) {
+      @apply focus-outline;
+    }
+  }
+
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
