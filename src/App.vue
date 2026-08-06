@@ -1,12 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRouteLayout } from './composables'
+
+const { layout } = useRouteLayout()
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to
-    read the documentation
-  </p>
+  <component :is="layout">
+    <RouterView />
+  </component>
 </template>
-
-<style scoped></style>

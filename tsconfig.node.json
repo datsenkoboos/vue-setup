@@ -17,7 +17,7 @@
     "module": "preserve",
     "moduleResolution": "bundler",
     // Include Node.js types and avoid accidentally including other `@types/*` packages.
-    "types": ["node"],
+    "types": ["node", "vite/client"],
     // Disable emitting output during `vue-tsc --build`, which is used for type-checking only.
     "noEmit": true,
     // `vue-tsc --build` produces a .tsbuildinfo file for incremental type-checking.
