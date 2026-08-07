@@ -13,6 +13,7 @@ export default defineConfig(
   {
     rules: {
       '@typescript-eslint/no-unsafe-argument': 'off',
+      'no-console': 'off',
     },
   },
   oxlint.buildFromOxlintConfigFile('./oxlint.config.ts'),
