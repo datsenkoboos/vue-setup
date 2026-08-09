@@ -7,8 +7,6 @@ export default defineConfig(
     vue: {
       a11y: true,
     },
-    test: true,
-    query: true,
   },
   {
     rules: {
